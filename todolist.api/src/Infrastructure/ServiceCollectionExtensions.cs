@@ -1,9 +1,12 @@
+using Core.Interfaces;
 using Core.IRepositories;
 using Infrastructure.Database;
 using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+
 
 public static class ServiceCollectionExtensions
 {
@@ -14,7 +17,8 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<MongoDbContext>();  
 
         services.AddScoped<IUserRepository, UserRepository>();  
-        services.AddScoped<IRoleRepository, RoleRepository>();    
+        services.AddScoped<IRoleRepository, RoleRepository>();  
+        services.AddScoped<IPasswordHasher, PasswordHasher>();  
 
     }
 }

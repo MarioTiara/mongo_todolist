@@ -50,5 +50,4 @@ public class RolesController : ControllerBase
         await _roleRepository.DeleteAsync(id);
         return Ok(new { Message = "User deleted" });
     }
-    
 }

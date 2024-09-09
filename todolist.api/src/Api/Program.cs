@@ -1,5 +1,5 @@
-using Infrastructure;
-using Infrastructure.Database;
+
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +10,8 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-
+builder.Services.RegisterMediatRHandlers();
+// builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateUserCommandHandler>());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
